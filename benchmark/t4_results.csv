@@ -1,0 +1,5 @@
+implementation,time_ms,gflops,pct_peak_flops,bw_gbs,pct_peak_bw
+triton,2.211,971.5,1.49,,
+naive_cuda,3.928,546.7,0.84,,
+tiled_cuda,3.174,676.7,1.04,,
+cublas,0.533,4032.7,6.20,,
