@@ -75,4 +75,6 @@ int main() {
     printf("C[1023][1023] = %f\n", h_C[1023 * N + 1023]);
 
     free(h_A); free(h_B); free(h_C);
+    cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
+    return 0;
 }
