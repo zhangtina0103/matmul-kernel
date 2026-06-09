@@ -1,5 +1,8 @@
-implementation,time_ms,gflops,pct_peak_flops,bw_gbs,pct_peak_bw
-triton,2.211,971.5,1.49,,
-naive_cuda,3.928,546.7,0.84,,
-tiled_cuda,3.174,676.7,1.04,,
-cublas,0.533,4032.7,6.20,,
+benchmark,implementation,time_ms,gflops,pct_peak_flops,notes
+matmul,naive_cuda,6.5,329,4.1,N=1024
+matmul,tiled_cuda,4.5,480,5.9,N=1024
+matmul,triton,1.6,1355,16.7,N=1024
+matmul,cublas,0.7,3094,38.2,N=1024
+attention,naive_attention,20.5,1679,,batch=1 heads=8 seq=4096 dim=64; correct baseline
+attention,flash_attention,25.5,1347,,batch=1 heads=8 seq=4096 dim=64; correct (max diff 1e-6); missing vectorized loads + large tiling
+attention,pytorch_sdpa,11.3,3037,,batch=1 heads=8 seq=4096 dim=64; production FA2
